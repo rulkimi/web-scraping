@@ -1,7 +1,7 @@
 # Weather Scraper API
 
 ## Introduction
-This FastAPI-based API scrapes real-time weather data from Google for a specified location.
+This FastAPI-based API serves as a practice project for web scraping real-time weather data from Google for a specified location. Additionally, it includes a basic API server setup to fetch data from the frontend and display a user interface.
 
 ## Usage
 ### Endpoint
