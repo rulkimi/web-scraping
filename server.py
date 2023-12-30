@@ -1,8 +1,18 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from requests_html import HTMLSession
 
 app = FastAPI()
 session = HTMLSession()
+
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Replace with the appropriate frontend URL in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 def scrape_weather_data(place):
     url = f'https://www.google.com/search?q=weather+{place}'
