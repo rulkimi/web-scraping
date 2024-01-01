@@ -51,6 +51,7 @@ searchBtn.addEventListener('click', async () => {
 // Additional functions for loading and error handling
 function showLoading() {
   loadingSpinner.style.display = 'block';
+  weatherTable.style.display = 'none';
 }
 
 function hideLoading() {
