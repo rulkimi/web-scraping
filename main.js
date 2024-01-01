@@ -6,8 +6,11 @@ const description = document.querySelector('.js-description');
 const precipitation = document.querySelector('.js-precipitation');
 const humidity = document.querySelector('.js-humidity');
 const wind = document.querySelector('.js-wind');
+const loadingSpinner = document.getElementById('loadingSpinner');
 
 const weatherTable = document.getElementById('weatherTable');
+
+hideLoading();
 
 searchBtn.addEventListener('click', async () => {
   const locationName = locationInput.value;
@@ -47,11 +50,11 @@ searchBtn.addEventListener('click', async () => {
 
 // Additional functions for loading and error handling
 function showLoading() {
-  // Implement your loading indicator logic here
+  loadingSpinner.style.display = 'block';
 }
 
 function hideLoading() {
-  // Implement your loading indicator hiding logic here
+  loadingSpinner.style.display = 'none';
 }
 
 function showError(message) {
