@@ -16,7 +16,7 @@ searchBtn.addEventListener('click', async () => {
     // Display loading indicator
     showLoading();
 
-    const url = `http://localhost:8000/search-weather?place=${encodeURIComponent(locationName)}`;
+    const url = `http://localhost:8000/search-weather?location=${encodeURIComponent(locationName)}`;
     const response = await fetch(url);
 
     if (!response.ok) {
