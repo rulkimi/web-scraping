@@ -29,31 +29,23 @@ def scrape_weather_data(place):
         temperature = request.html.find('span#wob_tm', first=True).text
         unit = request.html.find('div.vk_bk.wob-unit span.wob_t', first=True).text
         description = request.html.find('div.VQF4g', first=True).find('span#wob_dc', first=True).text
+        precipitation = request.html.find('div.wtsRwe div span#wob_pp', first=True).text
+        humidity = request.html.find('div.wtsRwe div span#wob_hm', first=True).text
+        wind = request.html.find('div.wtsRwe div span#wob_ws', first=True).text
 
-        return {"place": place, "temperature": temperature, "unit": unit, "description": description}
+        return {
+            "place": place,
+            "temperature": temperature,
+            "unit": unit,
+            "description": description,
+            "precipitation": precipitation,
+            "humidity": humidity,
+            "wind": wind
+        }
     except AttributeError:
         raise HTTPException(status_code=500, detail="Failed to retrieve weather data.")
-    
-def get_country_flag(country_name):
-    # Using the Restcountries API to get country data
-    api_url = f'https://restcountries.com/v3.1/name/{country_name}?fields=flags'
-    response = requests.get(api_url)
-
-    if response.status_code == 200:
-        data = response.json()
-        if data and 'flags' in data[0]:
-            return data[0]['flags'].get('png', None)
-        else:
-            return None
-    else:
-        return None
 
 @app.get("/search-weather")
 def search_weather(place: str):
     weather_data = scrape_weather_data(place)
     return weather_data
-
-@app.get("/search-flags")
-def search_flags(country_name: str):
-    flag = get_country_flag(country_name)
-    return flag
