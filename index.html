@@ -16,18 +16,42 @@
           <input id="location" class="form-control js-location" type="text" />
           <button class="btn btn-primary mt-2 js-search-btn">Search</button>
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="js-place"></div>
-          </div>
-          <div class="col">
-            <div class="js-weather"></div>
-          </div>
-          <div class="col">
-            <div class="js-description"></div>
-          </div>
-        </div>
-      </div>
+        <div class="container mt-3">
+          <table class="table table-bordered table-striped">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Information</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Location</th>
+                <td class="js-place"><!-- Content for Place --></td>
+              </tr>
+              <tr>
+                <th scope="row">Weather</th>
+                <td class="js-weather"><!-- Content for Weather --></td>
+              </tr>
+              <tr>
+                <th scope="row">Description</th>
+                <td class="js-description"><!-- Content for Description --></td>
+              </tr>
+              <tr>
+                <th scope="row">Precipitation</th>
+                <td class="js-precipitation"><!-- Content for Precipitation --></td>
+              </tr>
+              <tr>
+                <th scope="row">Humidity</th>
+                <td class="js-humidity"><!-- Content for Humidity --></td>
+              </tr>
+              <tr>
+                <th scope="row">Wind</th>
+                <td class="js-wind"><!-- Content for Wind --></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>        
     </div>
   </div>
   <script type="module" src="main.js"></script>
