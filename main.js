@@ -7,12 +7,14 @@ const precipitation = document.querySelector('.js-precipitation');
 const humidity = document.querySelector('.js-humidity');
 const wind = document.querySelector('.js-wind');
 const loadingSpinner = document.getElementById('loadingSpinner');
+const errorMessage = document.getElementById('errorMessage');
 
 const weatherTable = document.getElementById('weatherTable');
 
 hideLoading();
 
 searchBtn.addEventListener('click', async () => {
+  errorMessage.innerHTML = '';
   const locationName = locationInput.value;
 
   try {
@@ -23,7 +25,9 @@ searchBtn.addEventListener('click', async () => {
     const response = await fetch(url);
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      showError('Failed to fetch weather data for ' + locationName);
+      errorMessage.innerHTML = 'Failed to fetch weather data for ' + locationName;
+      return;
     }
 
     const data = await response.json();
