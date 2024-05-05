@@ -1,0 +1,1 @@
+This Python script scrapes GDP (Gross Domestic Product) data from the OECD (Organisation for Economic Co-operation and Development) website. The data spans from the first quarter of 2014 to the fourth quarter of 2023, capturing quarterly GDP figures for various countries.
